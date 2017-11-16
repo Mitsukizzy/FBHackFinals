@@ -1,0 +1,24 @@
+<!doctype html>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyABxbGxTahwh8O877G4PhBKQMgyX8QZ7gE",
+    authDomain: "fbhackf-90483.firebaseapp.com",
+    databaseURL: "https://fbhackf-90483.firebaseio.com",
+    projectId: "fbhackf-90483",
+    storageBucket: "fbhackf-90483.appspot.com",
+    messagingSenderId: "189590762664"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+	var scoresRef = firebase.database().ref('scores');
+	scoresRef.once('value').then(function(data) {
+		// data.val() returns an object that maps (id -> value)
+		console.log(data.val());
+	});
+</script>
+
+</html>
