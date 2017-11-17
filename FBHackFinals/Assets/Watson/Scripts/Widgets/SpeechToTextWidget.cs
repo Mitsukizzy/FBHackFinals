@@ -247,6 +247,7 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 		private string[] TrimArticles(string[] transcript) {
 			List<string> final = new List<string>();
 			string[] articles = new string[] {
+				"",
 				"the",
 				"a",
 				"at",
@@ -274,10 +275,12 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 					final.Add (transcript [i]);
 					final.Add (transcript [i]);
 					final.Add (transcript [i]);
+					final.Add (transcript [i]);
+					final.Add (transcript [i]);
 				}
 			}
 
-			 final.ToArray ();
+			return final.ToArray ();
 		}
 
 		private void OnRecognize(SpeechRecognitionEvent result)
