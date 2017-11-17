@@ -152,6 +152,11 @@ public abstract class GvrBasePointer : MonoBehaviour {
     }
   }
 
+  // temporary restoring previous implementation
+  public virtual Vector3 GetLineEndPoint() {
+    return Vector3.zero;
+  }
+
   /// If true, the trigger was just pressed. This is an event flag:
   /// it will be true for only one frame after the event happens.
   /// Defaults to GvrControllerInput.ClickButtonDown, can be overridden to change the trigger.

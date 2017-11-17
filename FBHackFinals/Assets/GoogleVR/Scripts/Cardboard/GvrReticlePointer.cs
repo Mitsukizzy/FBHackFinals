@@ -65,6 +65,13 @@ public class GvrReticlePointer : GvrBasePointer {
 
   public float ReticleOuterDiameter { get; private set; }
 
+  // From IBM unity-sdk older version
+  private Vector3 targetPoint = Vector3.zero;
+
+  public override Vector3 GetLineEndPoint() {
+		return targetPoint;
+  }
+
   public override float MaxPointerDistance { get { return maxReticleDistance; } }
 
   public override void OnPointerEnter(RaycastResult raycastResultResult, bool isInteractive) {
@@ -146,7 +153,7 @@ public class GvrReticlePointer : GvrBasePointer {
       Debug.LogWarning("Cannot operate on a null pointer transform");
       return false;
     }
-
+	targetPoint = target; // supply in old assignment for backward compatibility
     Vector3 targetLocalPosition = base.PointerTransform.InverseTransformPoint(target);
 
     ReticleDistanceInMeters =
