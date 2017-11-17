@@ -8,17 +8,18 @@ public class GameManager : FirebaseTest
 
     private VideoPlayer vid;
     private VideoClip clip;
+    private Animation anim;
     public GameObject resultsCanvas;
 
     // Use this for initialization
     void Start()
     {
-        //SaveScore (13);
         vid = GameObject.Find("VideoScreen").GetComponent<VideoPlayer>();
         clip = vid.clip;
+        anim = vid.GetComponent<Animation>();
+
         vid.Play();
         vid.loopPointReached += ShowResults;
-        StartWait();
     }
 
     // Update is called once per frame
@@ -29,18 +30,19 @@ public class GameManager : FirebaseTest
 
     public void ShowResults(UnityEngine.Video.VideoPlayer vp)
     {
-        resultsCanvas.SetActive(true);
+        StartWait();
     }
 
 
-    IEnumerator StartWait()
+    private void StartWait()
     {
-        float dur = (float)clip.length;
-        yield return StartCoroutine(Wait(dur));
+        StartCoroutine(Wait(3.0f));
     }
 
     private IEnumerator Wait(float duration)
     {
+        anim.Play();
         yield return new WaitForSeconds(duration);
+        resultsCanvas.SetActive(true);
     }
 }

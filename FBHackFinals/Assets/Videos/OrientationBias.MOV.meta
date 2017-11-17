@@ -29,7 +29,7 @@ VideoClipImporter:
   sourceAudioSampleRate: 44ac0000
   targetSettings:
     0:
-      enableTranscoding: 0
+      enableTranscoding: 1
       codec: 0
       resizeFormat: 0
       aspectRatio: 0
@@ -40,7 +40,7 @@ VideoClipImporter:
   output:
     format: 1
     settings:
-      enableTranscoding: 0
+      enableTranscoding: 1
       codec: 0
       resizeFormat: 0
       aspectRatio: 0
@@ -53,9 +53,9 @@ VideoClipImporter:
     encodedStartFrame: 0
     encodedEndFrame: 165
     streamedResource:
-      source: 
+      source: library/metadata/78/78293936132dd5f40bad1170d13b5662.resource
       offset: 0
-      size: 10923108
+      size: 5514496
   userData: 
   assetBundleName: 
   assetBundleVariant: 
