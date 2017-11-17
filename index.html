@@ -14,13 +14,60 @@
 </script>
 
 <script>
+	var m1 = {
+    size: 0,
+    sum: 0
+  };
+
+  var m2 = {
+    size: 0,
+    sum: 0
+  };
+
+  var m3 = {
+    size: 0,
+    sum: 0
+  };
+
 	setInterval(function() {
-		var scoresRef = firebase.database().ref('scores');
-		scoresRef.once('value').then(function(data) {
+		var module1DataRef = firebase.database().ref('module1');
+		module1DataRef.once('value').then(function(data) {
 		// data.val() returns an object that maps (id -> value)
-		console.log(data.val());
+		var obj = data.val();
+    m1.size = Object.keys(obj).length;
+    m1.sum = 0;
+    for (x in obj) {
+      m1.sum += obj[x];
+    }
+    console.log(m1);
 		});
-	}, 5000);
+
+		var module2DataRef = firebase.database().ref('module2');
+		module2DataRef.once('value').then(function(data) {
+		// data.val() returns an object that maps (id -> value)
+    var obj = data.val();
+    m2.size = Object.keys(obj).length;
+    m2.sum = 0;
+    for (x in obj) {
+      m2.sum += obj[x];
+    }
+    console.log(m2);
+
+    });
+
+		var module3DataRef = firebase.database().ref('module3');
+		module3DataRef.once('value').then(function(data) {
+		// data.val() returns an object that maps (id -> value)
+    var obj = data.val();
+    m3.size = Object.keys(obj).length;
+    m3.sum = 0;
+    for (x in obj) {
+      m3.sum += obj[x];
+    }
+    console.log(m3);
+
+		});		
+	}, 7500);
 </script>
 
 </html>
