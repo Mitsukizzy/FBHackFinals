@@ -6,7 +6,7 @@ public class FirebaseModule1 : FirebaseTest {
 
 	// Use this for initialization
 	void Start () {
-		//SaveScore (11);
+		SaveScore (539);
 	}
 	
 	// Update is called once per frame
