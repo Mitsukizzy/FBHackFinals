@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+  <string name="firebase_database_url" translatable="false">https://fbhackf-90483.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">189590762664</string>
+  <string name="google_storage_bucket" translatable="false">fbhackf-90483.appspot.com</string>
+  <string name="project_id" translatable="false">fbhackf-90483</string>
+  <string name="google_api_key" translatable="false">AIzaSyDVmzWSHl4FMH23W7VSJ4dStjrHbxfEQSk</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDVmzWSHl4FMH23W7VSJ4dStjrHbxfEQSk</string>
+  <string name="google_app_id" translatable="false">1:189590762664:android:bc04466d6bbf95b1</string>
+  <string name="default_web_client_id" translatable="false">189590762664-d3k9destnslq06dmegq2qeg1s2pa6ne6.apps.googleusercontent.com</string>
+</resources>
