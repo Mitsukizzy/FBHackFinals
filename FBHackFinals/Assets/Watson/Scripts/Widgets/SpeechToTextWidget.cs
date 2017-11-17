@@ -263,14 +263,21 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 				"but",
 				"about",
 				"me",
+				"think",
+				"that",
+				"is",
+				"and"
 			};
 			for (int i = 0; i < transcript.Length; i++) {
 				if (System.Array.IndexOf (articles, transcript [i]) < 0) {
 					final.Add (transcript [i]);
+					final.Add (transcript [i]);
+					final.Add (transcript [i]);
+					final.Add (transcript [i]);
 				}
 			}
 
-			return final.ToArray ();
+			 final.ToArray ();
 		}
 
 		private void OnRecognize(SpeechRecognitionEvent result)
