@@ -14,11 +14,13 @@
 </script>
 
 <script>
-	var scoresRef = firebase.database().ref('scores');
-	scoresRef.once('value').then(function(data) {
+	setInterval(function() {
+		var scoresRef = firebase.database().ref('scores');
+		scoresRef.once('value').then(function(data) {
 		// data.val() returns an object that maps (id -> value)
 		console.log(data.val());
-	});
+		});
+	}, 5000);
 </script>
 
 </html>
