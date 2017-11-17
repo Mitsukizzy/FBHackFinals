@@ -215,9 +215,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Success/Fail
-
-'
+  m_Text: There was an issue processing your response. Please try again.
 --- !u!114 &114604612494932396
 MonoBehaviour:
   m_ObjectHideFlags: 1
