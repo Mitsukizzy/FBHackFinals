@@ -267,7 +267,9 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 				"think",
 				"that",
 				"is",
-				"and"
+				"and",
+				"my",
+				"feel"
 			};
 			for (int i = 0; i < transcript.Length; i++) {
 				if (System.Array.IndexOf (articles, transcript [i]) < 0) {
@@ -334,7 +336,7 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 					collisions = TrimArticles (phArr.ToArray ());
 				} else {
 					badWords = badWords3;
-					collisions = TrimEmpties(phArr.ToArray ());
+					collisions = GetConflicts(badWords, phArr.ToArray());
 				}
 				// Debugging: print all contents of array.
 				//				for (int i = 0; i < phArr.Count; i++) {
