@@ -70,6 +70,32 @@ namespace IBM.Watson.DeveloperCloud.Widgets
     [SerializeField, Tooltip("Language ID to use in the speech recognition model.")]
     private string m_Language = "en-US";
 	private List<string> phArr = new List<string> ();
+	
+	public int moduleNum = 1;
+	private string[] badWords1 = new string[] {
+		"him",
+		"his",
+		"he",
+		"man",
+		"guy"
+	};
+	private string[] badWords2 = new string[] {
+		"her",
+		"hers",
+		"she",
+		"lady",
+		"girl"
+	};
+
+	private string[] badWords3 = new string[] {
+		"nice",
+		"yes",
+		"great",
+		"good",
+		"young",
+		"should"
+	};
+	private string[] collisions;
     #endregion
 
     #region Public Properties
@@ -191,6 +217,33 @@ namespace IBM.Watson.DeveloperCloud.Widgets
       }
     }
 
+		private string[] GetConflicts(string[] badWords, string[] transcript) {
+			List<string> conflicts = new List<string>();
+			System.Array.Sort(badWords);
+			System.Array.Sort(transcript);
+
+			for (int i = 0; i < transcript.Length; i++) {
+				UnityEngine.Debug.Log ("~~~~" + transcript [i]);
+			}
+
+			int a = 0;
+			int b = 0;
+
+			while (a < badWords.Length && b < transcript.Length) {
+				if (System.String.Compare(badWords[a],transcript[b]) == 0) {
+					b++;
+					UnityEngine.Debug.Log ("I added the word " + badWords [a] + " to conflicts");
+					conflicts.Add(badWords[a]);
+				} else if (System.String.Compare(badWords[a],transcript[b]) < 0) {
+					a++;
+				} else {
+					b++;
+				}
+			}
+
+			return conflicts.ToArray();
+		}
+
     private void OnRecognize(SpeechRecognitionEvent result)
     {
       m_ResultOutput.SendData(new SpeechToTextData(result));
@@ -220,13 +273,26 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 			}
           }
         }
+		string[] badWords;
+		if (moduleNum == 1) {
+			badWords = badWords1;
+		} else if (moduleNum == 2) {
+			badWords = badWords2;
+		} else {
+			badWords = badWords3;
+		}
+		collisions = GetConflicts (badWords, phArr.ToArray ());
 				// Debugging: print all contents of array.
-				for (int i = 0; i < phArr.Count; i++) {
-					UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
-				}
-				UnityEngine.Debug.Log ("size of array: " + phArr.Count);
+//				for (int i = 0; i < phArr.Count; i++) {
+//					UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
+//				}
+//				UnityEngine.Debug.Log ("size of array: " + phArr.Count);
+		
       }
     }
+	public string[] GetCollisions() {
+		return collisions;
+	}
     #endregion
   }
 }
