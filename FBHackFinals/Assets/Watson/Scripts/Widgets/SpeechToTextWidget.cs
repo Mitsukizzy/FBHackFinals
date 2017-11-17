@@ -244,6 +244,35 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 			return conflicts.ToArray();
 		}
 
+		private string[] TrimArticles(string[] transcript) {
+			List<string> final = new List<string>();
+			string[] articles = new string[] {
+				"the",
+				"a",
+				"at",
+				"I",
+				"with",
+				"from",
+				"into",
+				"during",
+				"of",
+				"to",
+				"for",
+				"on",
+				"by",
+				"but",
+				"about",
+				"me",
+			};
+			for (int i = 0; i < transcript.Length; i++) {
+				if (System.Array.IndexOf (articles, transcript [i]) < 0) {
+					final.Add (transcript [i]);
+				}
+			}
+
+			return final.ToArray ();
+		}
+
 		private void OnRecognize(SpeechRecognitionEvent result)
 		{
 			m_ResultOutput.SendData(new SpeechToTextData(result));
@@ -276,12 +305,13 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 				string[] badWords;
 				if (moduleNum == 1) {
 					badWords = badWords1;
+					collisions = GetConflicts (badWords, phArr.ToArray ());
 				} else if (moduleNum == 2) {
-					badWords = badWords2;
+					collisions = TrimArticles (phArr.ToArray ());
 				} else {
 					badWords = badWords3;
+					collisions = GetConflicts (badWords, phArr.ToArray ());
 				}
-				collisions = GetConflicts (badWords, phArr.ToArray ());
 				// Debugging: print all contents of array.
 				//				for (int i = 0; i < phArr.Count; i++) {
 				//					UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
