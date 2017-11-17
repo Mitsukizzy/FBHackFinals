@@ -393,6 +393,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33add62bb4923d94986d5be88dc5f825, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &165091410 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114561052176239396, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 165091409}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &189115713 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b,
@@ -886,7 +892,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1632,6 +1638,49 @@ Animation:
 GameObject:
   m_PrefabParentObject: {fileID: 171526, guid: 60270cf52a5e94998a5a335989159738, type: 2}
   m_PrefabInternal: {fileID: 848404732}
+--- !u!1 &659101313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 659101315}
+  - component: {fileID: 659101314}
+  m_Layer: 0
+  m_Name: WordCloud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &659101314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659101313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b4a74b92c40144459cb358553c13c6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  childObject: {fileID: 1760690938978102, guid: fc585113aaf52dc4a8bfe796baf3894a,
+    type: 2}
+  size: 10
+--- !u!4 &659101315
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 659101313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 1, z: 3.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &781074293
 Prefab:
   m_ObjectHideFlags: 0
@@ -1836,6 +1885,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1828635938988402, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3,
     type: 2}
   m_PrefabInternal: {fileID: 899339213}
+--- !u!114 &899339215 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114789301029592852, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 899339213}
+  m_Script: {fileID: 11500000, guid: 0ba780a4e1f9a824895da80178f4406c, type: 3}
 --- !u!1 &907292807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5587,7 +5642,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 959308587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.488, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 848404733}
@@ -6489,6 +6544,9 @@ MonoBehaviour:
   resultsCanvas: {fileID: 1585818834}
   speechCanvas: {fileID: 1672443572}
   cameraRig: {fileID: 899339214}
+  speechToText: {fileID: 899339215}
+  cloud: {fileID: 659101314}
+  resultText: {fileID: 165091410}
 --- !u!1 &2100663267 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 632161999, guid: 87c35d808850c410ca0e398a8da84e68,
