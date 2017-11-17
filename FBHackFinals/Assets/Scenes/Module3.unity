@@ -1439,7 +1439,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 515139981}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: ba3de7cee976ba24fb25f43038b26a5f, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 3ca9d2dd9f3cf6e498ef6308b7ea6fcd, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera: {fileID: 0}
   m_TargetTexture: {fileID: 0}
@@ -2939,6 +2939,7 @@ MonoBehaviour:
   speechCanvas: {fileID: 1160365932}
   cameraRig: {fileID: 344810367}
   speechToText: {fileID: 1191719383}
+  cloud: {fileID: 0}
   resultText: {fileID: 1682060233}
 --- !u!1 &2100663267 stripped
 GameObject:

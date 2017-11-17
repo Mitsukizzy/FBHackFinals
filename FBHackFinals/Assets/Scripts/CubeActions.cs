@@ -16,12 +16,12 @@ public class CubeActions : MonoBehaviour {
 		
 	}
 
-    public void OnPointerEnter()
+    public void Grow()
     {
         anim.Play();
     }
 
-    public void OnPointerExit()
+    public void Shrink()
     {
         anim.Play("BoxShrink");
     }
