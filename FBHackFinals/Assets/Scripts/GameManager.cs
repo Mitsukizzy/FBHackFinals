@@ -64,6 +64,12 @@ public class GameManager : FirebaseTest
         string[] collisions = speechToText.GetCollisions();
         int moduleNum = speechToText.moduleNum;
         
+        if (moduleNum == 2)
+        {
+            resultText.text = "Look around! These were some of the words you used to describe your colleague. How would you feel if these words were described of you?";
+            return; 
+        }
+
         if(collisions.Length > 0)
         {
             resultText.text = failureTexts[moduleNum-1];
