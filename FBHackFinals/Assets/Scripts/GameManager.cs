@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
+using UnityEngine.UI;
 
 public class GameManager : FirebaseTest
 {
@@ -12,6 +13,20 @@ public class GameManager : FirebaseTest
     public GameObject resultsCanvas;
     public GameObject speechCanvas;
     public GameObject cameraRig;
+    public IBM.Watson.DeveloperCloud.Widgets.SpeechToTextWidget speechToText;
+    public Text resultText;
+
+    private string[] successTexts = new string[] {
+        "Good job on avoiding potential unconscious bias with identifying gender! A person's role or presence in the office should not cause assumptions of their gender.",
+        "Good job on avoiding potential unconscious bias with identifying sexual orientation!",
+        "Good job on standing up against ageism! A person's age is not a way of measuring their skill or capability."
+    };
+
+    private string[] failureTexts = new string[] {
+        "Watch out for unconscious bias with identifying gender! From the information given, Sam can possibly identify as a female.",
+        "Watch out for unconscious bias with identifying sexual orientation! From the information given, the employee's partner could be male or female.",
+        "Watch out for ageism! A person's age is not a way of measuring their skill or capability."
+    };
 
     // Use this for initialization
     void Start()
@@ -45,6 +60,22 @@ public class GameManager : FirebaseTest
     public void ShowResults()
     {
         StartWait();
+        string[] collisions = speechToText.GetCollisions();
+        int moduleNum = speechToText.moduleNum;
+        
+        if(collisions.Length > 0)
+        {
+            resultText.text = failureTexts[moduleNum-1];
+            resultText.text += "\nDetected words:";
+            for(int i = 0; i < collisions.Length; i++)
+            {
+                resultText.text += "," + collisions[i];
+            }
+        }
+        else
+        {
+            resultText.text = successTexts[moduleNum-1];
+        }
     }
 
     private void StartWait()

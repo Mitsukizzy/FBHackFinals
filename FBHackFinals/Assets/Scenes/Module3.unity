@@ -394,6 +394,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 555767533, guid: 34c21f523e72f45509a4e37ed0293c3b,
     type: 2}
   m_PrefabInternal: {fileID: 390902453}
+--- !u!224 &222400593 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224098772970387794, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 968645230}
 --- !u!1 &339658301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,7 +2096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1177807708179410, guid: 33add62bb4923d94986d5be88dc5f825, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114193199070642100, guid: 33add62bb4923d94986d5be88dc5f825,
         type: 2}
@@ -2128,6 +2133,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2071351592}
+    - target: {fileID: 1160225506903346, guid: 33add62bb4923d94986d5be88dc5f825, type: 2}
+      propertyPath: m_Name
+      value: ResultsHeader
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33add62bb4923d94986d5be88dc5f825, type: 2}
   m_IsPrefabParent: 0
@@ -2697,6 +2706,84 @@ RectTransform:
   m_AnchoredPosition: {x: -0.89699554, y: 0.01}
   m_SizeDelta: {x: 200, y: 320}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1682060231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1160225506903346, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1682060232}
+  - component: {fileID: 1682060234}
+  - component: {fileID: 1682060233}
+  m_Layer: 5
+  m_Name: Status
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1682060232
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 224111037418893170, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682060231}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -195.99915, y: 80, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 222400593}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -195.99916, y: 80}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1682060233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114561052176239396, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682060231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 60
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 70
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Success/Fail
+--- !u!222 &1682060234
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 222687112741420194, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1682060231}
 --- !u!1 &1968184278
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,6 +3058,8 @@ MonoBehaviour:
   resultsCanvas: {fileID: 601520274}
   speechCanvas: {fileID: 1160365932}
   cameraRig: {fileID: 344810367}
+  speechToText: {fileID: 1191719383}
+  resultText: {fileID: 1682060233}
 --- !u!1 &2100663267 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 632161999, guid: 87c35d808850c410ca0e398a8da84e68,
