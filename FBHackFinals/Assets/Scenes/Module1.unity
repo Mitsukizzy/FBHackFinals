@@ -1685,6 +1685,11 @@ GameObject:
   m_PrefabParentObject: {fileID: 1177807708179410, guid: 33add62bb4923d94986d5be88dc5f825,
     type: 2}
   m_PrefabInternal: {fileID: 1256473317}
+--- !u!1 &1530229637 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1828635938988402, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 2047380902}
 --- !u!1 &1981762127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1912,6 +1917,14 @@ Prefab:
       propertyPath: m_Transcript
       value: 
       objectReference: {fileID: 1000005166}
+    - target: {fileID: 1045927392156804, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1828635938988402, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3, type: 2}
   m_IsPrefabParent: 0
@@ -1969,6 +1982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   resultsCanvas: {fileID: 1499060387}
   speechCanvas: {fileID: 1355932883}
+  cameraRig: {fileID: 1530229637}
 --- !u!1 &2100663267 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 632161999, guid: 87c35d808850c410ca0e398a8da84e68,

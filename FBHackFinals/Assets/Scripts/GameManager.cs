@@ -11,6 +11,7 @@ public class GameManager : FirebaseTest
     private Animation anim;
     public GameObject resultsCanvas;
     public GameObject speechCanvas;
+    public GameObject cameraRig;
 
     // Use this for initialization
     void Start()
@@ -34,13 +35,11 @@ public class GameManager : FirebaseTest
     {
         // Show mic listener text
         speechCanvas.SetActive(true);
+        cameraRig.SetActive(true);
 
         // TODO: Replace with code that waits for response
         // Temporarily will just wait for 3 sec to calculate then show results
-        StartCoroutine(Wait(3.0f));
-
-
-        ShowResults();
+        StartCoroutine(Wait(10.0f));
     }    
     
     public void ShowResults()
@@ -63,5 +62,6 @@ public class GameManager : FirebaseTest
     private IEnumerator Wait(float duration)
     {
         yield return new WaitForSeconds(duration);
+        ShowResults();
     }
 }
