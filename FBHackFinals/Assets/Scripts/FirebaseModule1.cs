@@ -14,7 +14,7 @@ public class FirebaseModule1 : FirebaseTest {
 		
 	}
 
-	void SaveScore(int score) {
+	public void SaveScore(int score) {
 		base.SaveIntoTable ("module1", score);
 	}
 }
