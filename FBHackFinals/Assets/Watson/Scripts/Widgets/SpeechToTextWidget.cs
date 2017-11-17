@@ -191,6 +191,33 @@ namespace IBM.Watson.DeveloperCloud.Widgets
       }
     }
 
+	private string[] GetConflicts(string[] badWords, string[] transcript) {
+			List<string> conflicts = new List<string>();
+			System.Array.Sort(badWords);
+			System.Array.Sort(transcript);
+
+			for (int i = 0; i < transcript.Length; i++) {
+				UnityEngine.Debug.Log ("~~~~" + transcript [i]);
+			}
+
+			int a = 0;
+			int b = 0;
+
+			while (a < badWords.Length && b < transcript.Length) {
+				if (System.String.Compare(badWords[a],transcript[b]) == 0) {
+					b++;
+					UnityEngine.Debug.Log ("I added the word " + badWords [a] + " to conflicts");
+					conflicts.Add(badWords[a]);
+				} else if (System.String.Compare(badWords[a],transcript[b]) < 0) {
+					a++;
+				} else {
+					b++;
+				}
+			}
+
+			return conflicts.ToArray();
+		}
+
     private void OnRecognize(SpeechRecognitionEvent result)
     {
       m_ResultOutput.SendData(new SpeechToTextData(result));
@@ -210,7 +237,11 @@ namespace IBM.Watson.DeveloperCloud.Widgets
         
         string[] wordsArr = text.Split(" "[0]);
 //        phArr.Add(text);
-        phArr.AddRange(wordsArr);
+		for (int i = 0; i < wordsArr.Length; i++) {
+			if (wordsArr [i].Length > 0) {
+				phArr.Add (wordsArr [i]);
+			}
+		}
 
               if (m_Transcript != null)
                 m_Transcript.text += string.Format("{0} ({1}, {2:0.00})\n",
@@ -220,11 +251,23 @@ namespace IBM.Watson.DeveloperCloud.Widgets
       }
           }
         }
-        // Debugging: print all contents of array.
-//        for (int i = 0; i < phArr.Count; i++) {
-//          UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
-//        }
-//        UnityEngine.Debug.Log ("size of array: " + phArr.Count);
+         //Debugging: print all contents of array.
+				/*
+        for (int i = 0; i < phArr.Count; i++) {
+          UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
+        }
+        UnityEngine.Debug.Log ("size of array: " + phArr.Count); */
+
+		//debugging: print all bad words in the array
+				string[] badWords = new string[] {
+					"him",
+					"he",
+					"his"
+				};
+				string[] conflicts = GetConflicts (badWords, phArr.ToArray());
+				if (conflicts.Length > 0) {
+					UnityEngine.Debug.Log ("FOUND " + conflicts.Length + " CONFLICTS!!!!");
+				}
       }
     }
     #endregion
