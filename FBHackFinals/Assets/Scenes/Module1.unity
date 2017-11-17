@@ -528,7 +528,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1820761120, guid: 34c21f523e72f45509a4e37ed0293c3b, type: 2}
       propertyPath: m_LocalRotation.x
@@ -1311,7 +1311,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 959308587}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.14, z: 0}
+  m_LocalPosition: {x: 0, y: 0.15, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 848404733}
@@ -1556,9 +1556,25 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114193199070642100, guid: 33add62bb4923d94986d5be88dc5f825,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2071351592}
+    - target: {fileID: 114193199070642100, guid: 33add62bb4923d94986d5be88dc5f825,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartModule
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33add62bb4923d94986d5be88dc5f825, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1256473318 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114561052176239396, guid: 33add62bb4923d94986d5be88dc5f825,
+    type: 2}
+  m_PrefabInternal: {fileID: 1256473317}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1266476664
 Prefab:
   m_ObjectHideFlags: 0
@@ -1928,6 +1944,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2047380903 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114789301029592852, guid: 055d0a7cd97926b43bbfa1e8a9d5d6e3,
+    type: 2}
+  m_PrefabInternal: {fileID: 2047380902}
+  m_Script: {fileID: 11500000, guid: 0ba780a4e1f9a824895da80178f4406c, type: 3}
 --- !u!1 &2071351591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1983,6 +2005,8 @@ MonoBehaviour:
   resultsCanvas: {fileID: 1499060387}
   speechCanvas: {fileID: 1355932883}
   cameraRig: {fileID: 1530229637}
+  speechToText: {fileID: 2047380903}
+  resultText: {fileID: 1256473318}
 --- !u!1 &2100663267 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 632161999, guid: 87c35d808850c410ca0e398a8da84e68,

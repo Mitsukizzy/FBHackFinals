@@ -14,6 +14,7 @@ public class GameManager : FirebaseTest
     public GameObject speechCanvas;
     public GameObject cameraRig;
     public IBM.Watson.DeveloperCloud.Widgets.SpeechToTextWidget speechToText;
+    public FormWordCloud cloud;
     public Text resultText;
 
     private string[] successTexts = new string[] {
@@ -54,7 +55,7 @@ public class GameManager : FirebaseTest
 
         // TODO: Replace with code that waits for response
         // Temporarily will just wait for 3 sec to calculate then show results
-        StartCoroutine(Wait(10.0f));
+        StartCoroutine(Wait(7.0f));
     }    
     
     public void ShowResults()
@@ -87,7 +88,14 @@ public class GameManager : FirebaseTest
     {
         anim.Play();
         yield return new WaitForSeconds(duration);
+        speechCanvas.SetActive(false);
+        cameraRig.SetActive(false);
         resultsCanvas.SetActive(true);
+
+        if(cloud)
+        {
+            cloud.ProcessWords(speechToText.GetCollisions());
+        }
     }
 
     private IEnumerator Wait(float duration)
