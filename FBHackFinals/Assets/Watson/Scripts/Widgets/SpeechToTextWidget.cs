@@ -283,7 +283,21 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 			return final.ToArray ();
 		}
 
-		private void OnRecognize(SpeechRecognitionEvent result)
+        private string[] TrimEmpties(string[] transcript)
+        {
+            List<string> final = new List<string>();
+            for (int i = 0; i < transcript.Length; i++)
+            {
+                if (System.String.Compare("", transcript[i]) != 0)
+                {
+                    final.Add(transcript[i]);
+                }
+            }
+
+            return final.ToArray();
+        }
+
+        private void OnRecognize(SpeechRecognitionEvent result)
 		{
 			m_ResultOutput.SendData(new SpeechToTextData(result));
 
@@ -320,7 +334,7 @@ namespace IBM.Watson.DeveloperCloud.Widgets
 					collisions = TrimArticles (phArr.ToArray ());
 				} else {
 					badWords = badWords3;
-					collisions = GetConflicts (badWords, phArr.ToArray ());
+					collisions = TrimEmpties(phArr.ToArray ());
 				}
 				// Debugging: print all contents of array.
 				//				for (int i = 0; i < phArr.Count; i++) {
