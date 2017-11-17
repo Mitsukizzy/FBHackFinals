@@ -23,6 +23,8 @@ using IBM.Watson.DeveloperCloud.Logging;
 using UnityEngine;
 using UnityEngine.UI;
 using IBM.Watson.DeveloperCloud.Utilities;
+using System.Collections.Generic;
+using System.Collections;
 
 #pragma warning disable 414
 
@@ -67,6 +69,7 @@ namespace IBM.Watson.DeveloperCloud.Widgets
     private Text m_Transcript = null;
     [SerializeField, Tooltip("Language ID to use in the speech recognition model.")]
     private string m_Language = "en-US";
+    private List<string> phArr = new List<string> ();
     #endregion
 
     #region Public Properties
@@ -195,24 +198,33 @@ namespace IBM.Watson.DeveloperCloud.Widgets
       if (result != null && result.results.Length > 0)
       {
         if (m_Transcript != null)
-          m_Transcript.text = "";
+          m_Transcript.text = "wait for it...";
 
         foreach (var res in result.results)
         {
           foreach (var alt in res.alternatives)
           {
-			
-			if (res.final && alt.confidence > 0.7) {
-            	string text = alt.transcript;
+      
+      if (res.final && alt.confidence > 0.5) {
+              string text = alt.transcript;
+        
+        string[] wordsArr = text.Split(" "[0]);
+//        phArr.Add(text);
+        phArr.AddRange(wordsArr);
 
-	            if (m_Transcript != null)
-    	          m_Transcript.text += string.Format("{0} ({1}, {2:0.00})\n",
-        	          text, res.final ? "Final" : "Interim", alt.confidence);
-				// break on first alternative interpretation found
-//				break;
-			}
+              if (m_Transcript != null)
+                m_Transcript.text += string.Format("{0} ({1}, {2:0.00})\n",
+                    text, res.final ? "Final" : "Interim", alt.confidence);
+        // break on first alternative interpretation found
+//        break;
+      }
           }
         }
+        // Debugging: print all contents of array.
+//        for (int i = 0; i < phArr.Count; i++) {
+//          UnityEngine.Debug.Log("{on item" + i + "}" + phArr[i]);
+//        }
+//        UnityEngine.Debug.Log ("size of array: " + phArr.Count);
       }
     }
     #endregion
